@@ -25,7 +25,7 @@ public class StatementServiceImpl implements StatementService {
 		Pageable pageable=PageRequest.of(0, 5);
 		List<Transaction> transaction =statementRepository.findByAccountNumber(accountNumber,pageable);
 		StatementResponseDto dto1=new StatementResponseDto();
-		List<StatementDto> dto2=new ArrayList<StatementDto>();
+		List<StatementDto> dto2=new ArrayList<>();
 		if(transaction.isEmpty())
 		{
 			dto1.setMessage("details not displayed successfully check your accountnumber");
@@ -50,7 +50,6 @@ public class StatementServiceImpl implements StatementService {
 			
 		}
 Date date=new Date();
-System.out.println(date);
 		dto1.setData(dto2);
 		dto1.setMessage("details displayed successfully");
 		dto1.setStatus("SUCCESS");
