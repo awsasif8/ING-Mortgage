@@ -23,7 +23,7 @@ public class LoginServiceImpl implements LoginService {
 		Customer details=customerRepository.findByCustomerIdAndPassword(loginDto.getCustomerId(),loginDto.getPassword());
 		
 		if(null!=details) {
-			if (details.getEmail().equals(loginDto.getCustomerId()) && details.getPassword().equals(loginDto.getPassword())) {
+			if (details.getCustomerId().equals(loginDto.getCustomerId()) && details.getPassword().equals(loginDto.getPassword())) {
 				LoginResDto loginResDto=new LoginResDto();
 				loginResDto.setCustomerId(details.getCustomerId());
 				loginResDto.setMessage("Login Success");

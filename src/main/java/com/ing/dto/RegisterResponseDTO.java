@@ -1,17 +1,16 @@
 package com.ing.dto;
 
-import java.io.Serializable;
-
 import lombok.Getter;
 import lombok.Setter;
 
 @Getter
 @Setter
-public class LoginResDto implements Serializable {
+public class RegisterResponseDTO {
 
-	private static final long serialVersionUID = 1L;
-	
 	private String customerId;
+	private String password;
+	private String mortgageAcc;
+	private String transactionAcc;
 	private String message;
 	private int statusCode;
 	private String status;
