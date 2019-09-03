@@ -6,10 +6,7 @@ import org.springframework.stereotype.Repository;
 import com.ing.entity.Customer;
 
 @Repository
-public interface CustomerRepository extends JpaRepository<Customer, Long>{
-
-
+public interface CustomerRepository extends JpaRepository<Customer, String>{
 
 	Customer findByCustomerIdAndPassword(String customerId, String password);
-
 }
