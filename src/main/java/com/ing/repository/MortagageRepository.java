@@ -7,4 +7,5 @@ import com.ing.entity.Mortagage;
 
 @Repository
 public interface MortagageRepository extends JpaRepository<Mortagage, String> {
+	public Mortagage findBycustomerId(String customerId);
 }
