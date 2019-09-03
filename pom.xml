@@ -103,13 +103,7 @@
 			</plugin>
 			<plugin>
 				
-<distributionManagement>
-  <snapshotRepository>
-    <id>nexus</id>
-    <url>http://52.66.198.162:8081/nexus/content/repositories/mortgage/</url>
-  </snapshotRepository>
-</distributionManagement>
-				
+			
             <groupId>org.jacoco</groupId>
             <artifactId>jacoco-maven-plugin</artifactId>
             <version>0.8.0</version>
