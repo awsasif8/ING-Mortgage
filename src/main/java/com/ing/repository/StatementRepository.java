@@ -13,4 +13,8 @@ public interface StatementRepository  extends JpaRepository<Transaction,Integer>
 @Query("select c from Transaction c where c.accountNumber=:accountNumber order by c.transactionDate desc")
 	List<Transaction> findByAccountNumber(String accountNumber,Pageable pageable);
 
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> 5f122cd1f7308483514ab46fed852ada053d9321

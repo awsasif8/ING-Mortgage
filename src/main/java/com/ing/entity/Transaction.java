@@ -2,6 +2,10 @@ package com.ing.entity;
 
 import java.io.Serializable;
 import java.time.LocalDateTime;
+<<<<<<< HEAD
+=======
+import java.util.Date;
+>>>>>>> 5f122cd1f7308483514ab46fed852ada053d9321
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -22,6 +26,10 @@ public class Transaction implements Serializable{
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long transactionId;
 	private LocalDateTime transactionDate;
+<<<<<<< HEAD
+=======
+
+>>>>>>> 5f122cd1f7308483514ab46fed852ada053d9321
 	private double transactionAmount;
 	private String description;
 	private String accountNumber;

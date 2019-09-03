@@ -8,5 +8,12 @@ import com.ing.dto.StatementResponseDto;
 public interface StatementService {
 
 	public StatementResponseDto getStatements(String accountNumber) ;
+<<<<<<< HEAD
 
 }
+=======
+	
+	
+
+}
+>>>>>>> 5f122cd1f7308483514ab46fed852ada053d9321

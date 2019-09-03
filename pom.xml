@@ -16,10 +16,13 @@
 
 
 	<properties>
-        <java.version>1.8</java.version>
-        <sonar.coverage.exclusions>**/entity/* ,**/dto/*,**/api/*,**/util/*,**/exception/*</sonar.coverage.exclusions>
-    </properties>
-	
+
+		<java.version>1.8</java.version>
+		<sonar.coverage.exclusions>**/entity/* ,**/dto/*,**/api/*,**/util/*,**/exception/*</sonar.coverage.exclusions>
+	</properties>
+
+      
+
 
 	<dependencies>
 		<dependency>
@@ -99,6 +102,14 @@
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
 			<plugin>
+				
+<distributionManagement>
+  <snapshotRepository>
+    <id>nexus</id>
+    <url>http://52.66.198.162:8081/nexus/content/repositories/mortgage/</url>
+  </snapshotRepository>
+</distributionManagement>
+				
             <groupId>org.jacoco</groupId>
             <artifactId>jacoco-maven-plugin</artifactId>
             <version>0.8.0</version>

@@ -17,4 +17,8 @@ private String transactionType;
 private double transactionAmount;
 private String description;
 private LocalDateTime transactionDate;
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> 5f122cd1f7308483514ab46fed852ada053d9321

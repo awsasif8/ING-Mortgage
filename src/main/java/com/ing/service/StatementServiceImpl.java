@@ -1,5 +1,9 @@
 package com.ing.service;
 
+<<<<<<< HEAD
+=======
+import java.time.LocalDate;
+>>>>>>> 5f122cd1f7308483514ab46fed852ada053d9321
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -25,7 +29,11 @@ public class StatementServiceImpl implements StatementService {
 		Pageable pageable=PageRequest.of(0, 5);
 		List<Transaction> transaction =statementRepository.findByAccountNumber(accountNumber,pageable);
 		StatementResponseDto dto1=new StatementResponseDto();
+<<<<<<< HEAD
 		List<StatementDto> dto2=new ArrayList<>();
+=======
+		List<StatementDto> dto2=new ArrayList<StatementDto>();
+>>>>>>> 5f122cd1f7308483514ab46fed852ada053d9321
 		if(transaction.isEmpty())
 		{
 			dto1.setMessage("details not displayed successfully check your accountnumber");
@@ -50,6 +58,10 @@ public class StatementServiceImpl implements StatementService {
 			
 		}
 Date date=new Date();
+<<<<<<< HEAD
+=======
+System.out.println(date);
+>>>>>>> 5f122cd1f7308483514ab46fed852ada053d9321
 		dto1.setData(dto2);
 		dto1.setMessage("details displayed successfully");
 		dto1.setStatus("SUCCESS");
@@ -62,4 +74,8 @@ Date date=new Date();
 
 
 }
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> 5f122cd1f7308483514ab46fed852ada053d9321
