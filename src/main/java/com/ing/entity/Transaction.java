@@ -1,7 +1,7 @@
 package com.ing.entity;
 
 import java.io.Serializable;
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -21,7 +21,7 @@ public class Transaction implements Serializable{
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long transactionId;
-	private LocalDate transactionDate;
+	private LocalDateTime transactionDate;
 	private double transactionAmount;
 	private String description;
 	private String accountNumber;

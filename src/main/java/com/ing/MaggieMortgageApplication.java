@@ -8,6 +8,7 @@ public class MaggieMortgageApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(MaggieMortgageApplication.class, args);
+		
 	}
 
 }

@@ -37,15 +37,15 @@ public class MailWithOTPService {
 	 * @throws MailException
 	 */
 
-	public void sendEmail(String email, String subject, String body) throws MailException {
+	public void sendEmail(String email, String subject, String body) {
 
-		logger.info("sending mail to " + email);
+		logger.info("sending mail to {} " , email);
 		SimpleMailMessage mail = new SimpleMailMessage();
 		mail.setTo(email);
 		mail.setSubject(subject);
 		mail.setText(body);
 
 		javaMailSender.send(mail);
-		logger.info("email sent successfully to " + email);
+		logger.info("email sent successfully to {} " , email);
 	}
 }

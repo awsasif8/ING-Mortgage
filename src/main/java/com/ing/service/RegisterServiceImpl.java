@@ -1,5 +1,7 @@
 package com.ing.service;
 
+import java.security.NoSuchAlgorithmException;
+import java.security.SecureRandom;
 import java.time.LocalDate;
 import java.time.Period;
 import java.util.Random;
@@ -50,28 +52,30 @@ public class RegisterServiceImpl implements RegisterService {
 	 * @return registerResponseDTO
 	 * 
 	 */
+	@Override
 	public RegisterResponseDTO registerCustomer(RegisterRequestDTO requestDTO) {
 
 		LocalDate today = LocalDate.now();
-
 		Period period = Period.between(requestDTO.getDob(), today);
-
 		if (period.getYears() < 18)
 			throw new MortagageManagementException("Sorry we are unable to grant you the mortgage at this moment");
+		Random rand = null;
+		try {
+			rand = SecureRandom.getInstanceStrong();
+		} catch (NoSuchAlgorithmException e) {
+			throw new MortagageManagementException("Unable to generate account number");
 
-		Random rand = new Random();
+		}
 		String customerIdPrefix = "ING";
 		int n = rand.nextInt(99999);
-		String customerId = customerIdPrefix + new Integer(n).toString();
-
+		String customerId = customerIdPrefix + n;
 		int m = rand.nextInt(999999);
 		String mortgageIdPrefix = "MORT";
-		String mortgageId = mortgageIdPrefix + new Integer(m).toString();
+		String mortgageId = mortgageIdPrefix + m;
 		String password = requestDTO.getFirstName() + "@" + requestDTO.getDob().getYear();
-
 		int o = rand.nextInt(9999);
 		String accountIdIdPrefix = "MAGGIE";
-		String accountId = accountIdIdPrefix + new Integer(o).toString();
+		String accountId = accountIdIdPrefix + o;
 		Customer customer = new Customer();
 		customer.setCustomerId(customerId);
 		customer.setDob(requestDTO.getDob());
@@ -101,14 +105,14 @@ public class RegisterServiceImpl implements RegisterService {
 		mortagageRepository.save(mortgage);
 
 		RegisterResponseDTO result = new RegisterResponseDTO();
-
 		result.setCustomerId(customer.getCustomerId());
 		result.setMessage("Registration Successfull");
+		
+		
+		result.setTransactionAcc(account.getAccountNumber());
 		result.setMortgageAcc(mortgage.getMortagageId());
 		result.setPassword(password);
-
-		generateOTPandSendMail(requestDTO.getEmail());
-
+		generateOTPandSendMail(requestDTO.getEmail(),result);
 		return result;
 	}
 
@@ -118,21 +122,19 @@ public class RegisterServiceImpl implements RegisterService {
 	 * @param email
 	 * @return status
 	 */
-	public String generateOTPandSendMail(String email) {
+	public void generateOTPandSendMail(String email,RegisterResponseDTO reg) {
 
 		logger.info("generateOTPandSendMail for mail id {} ", email);
-		Integer otp = 0;
-		String status;
 		try {
-			otp = 100000 + new Random().nextInt(900000);
-			String body = "OTP for ING Transaction " + otp;
-			String subject = "ING Bank Transactions";
+			String temp = "Your account login ID :"+reg.getCustomerId() +"\nYour password :"+reg.getPassword()+
+					"\nYour mortgage account number :"+reg.getMortgageAcc()+"\nYour transactional account number : "+reg.getTransactionAcc();
+			
+			String body = "Congratulations!!!! Your mortgage has been granted.,\n\nThis is the data you need and the same has been communicated over email. \n\n"+temp ;
+			String subject = "Mortgage Granted";
 			mailWithOTPService.sendEmail(email, subject, body);
-			status = "SUCCESS";
 		} catch (Exception e) {
-			logger.info("Error in generating OTP ");
-			status = "FAILURE";
+			logger.info("Error in generating Mail ");
 		}
-		return status;
 	}
+
 }

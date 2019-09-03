@@ -7,6 +7,6 @@ public interface RegisterService {
 
 	RegisterResponseDTO registerCustomer(RegisterRequestDTO requestDTO);
 
-	String generateOTPandSendMail(String string);
+	public void generateOTPandSendMail(String email,RegisterResponseDTO reg);
 	
 }

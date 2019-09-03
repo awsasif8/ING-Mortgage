@@ -17,13 +17,13 @@ import com.ing.service.RegisterService;
 @RequestMapping("/api")
 @CrossOrigin(allowedHeaders = { "*", "*/" }, origins = { "*", "*/" })
 public class RegisterController {
-	
+
 	@Autowired
 	RegisterService registerSrvice;
 
 	@PostMapping("/register")
-	public ResponseEntity<RegisterResponseDTO> registerCustomer(@RequestBody RegisterRequestDTO requestDTO){
-		
-		return new ResponseEntity<RegisterResponseDTO>(registerSrvice.registerCustomer(requestDTO), HttpStatus.CREATED);
+	public ResponseEntity<RegisterResponseDTO> registerCustomer(@RequestBody RegisterRequestDTO requestDTO) {
+
+		return new ResponseEntity<>(registerSrvice.registerCustomer(requestDTO), HttpStatus.CREATED);
 	}
 }

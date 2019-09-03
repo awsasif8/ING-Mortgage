@@ -7,6 +7,5 @@ import com.ing.entity.Customer;
 
 @Repository
 public interface CustomerRepository extends JpaRepository<Customer, String>{
-
 	Customer findByCustomerIdAndPassword(String customerId, String password);
 }

@@ -6,6 +6,5 @@ import org.springframework.stereotype.Repository;
 import com.ing.entity.Mortagage;
 
 @Repository
-public interface MortagageRepository extends JpaRepository<Mortagage, String>{
-
+public interface MortagageRepository extends JpaRepository<Mortagage, String> {
 }
