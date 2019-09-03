@@ -19,7 +19,6 @@ public class Customer implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private String customerId;
 	private String email;
 	private String firstName;
@@ -28,7 +27,5 @@ public class Customer implements Serializable {
 	private String mobile;
 	private String password;
 	private LocalDate dob;
-
-	
 
 }

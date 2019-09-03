@@ -17,12 +17,11 @@ import lombok.Setter;
 public class Account implements Serializable {
 
 	private static final long serialVersionUID = 1L;
-	
+
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private String accountNumber;
 	private double balance;
 	private LocalDate createdOn;
-	private String customerId; 
+	private String customerId;
 	private String accountType;
 }
