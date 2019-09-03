@@ -49,14 +49,14 @@ public class RegisterServiceImpl implements RegisterService {
 		Random rand = new Random();
 		String customerIdPrefix = "ING";
 		int n = rand.nextInt(99999);
-		String customerId = customerIdPrefix + new Integer(n).toString();
+		String customerId = customerIdPrefix +n;
 		int m = rand.nextInt(999999);
 		String mortgageIdPrefix = "MORT";
-		String mortgageId = mortgageIdPrefix + new Integer(m).toString();
+		String mortgageId = mortgageIdPrefix +m;
 		String password = requestDTO.getFirstName() + "@" + requestDTO.getDob().getYear();
 		int o = rand.nextInt(9999);
 		String accountIdIdPrefix = "MAGGIE";
-		String accountId = accountIdIdPrefix + new Integer(o).toString();
+		String accountId = accountIdIdPrefix +o;
 		Customer customer = new Customer();
 		customer.setCustomerId(customerId);
 		customer.setDob(requestDTO.getDob());
@@ -91,6 +91,7 @@ public class RegisterServiceImpl implements RegisterService {
 		RegisterResponseDTO result = new RegisterResponseDTO();
 		result.setCustomerId(customer.getCustomerId());
 		result.setMessage("Registration Successfull");
+		result.setTransactionAcc(account.getAccountNumber());
 		result.setMortgageAcc(mortgage.getMortagageId());
 		result.setPassword(password);
 		return result;
